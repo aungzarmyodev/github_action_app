@@ -5,21 +5,38 @@ jobs:
   test:
     runs-on: macos-latest 
     steps: 
-        - name: Get Code
-          uses: actions/checkout@v4
-        - name: Setup Java
-          uses: actions/setup-java@v4
-          with:
-            distribution: 'temurin'
-            java-version: '17'
-        - name: Setup Flutter
-          uses: subosito/flutter-action@v2
-          with:
-            channel: stable
-        - run: flutter pub get
-        - run: flutter test
-        - run: flutter build apk
-        - run: flutter build appbundle
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter test
+  
+  build:
+    runs-on: macos-latest 
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter build apk
+      - run: flutter build appbundle
+      
         
 
         
