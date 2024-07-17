@@ -36,6 +36,11 @@ jobs:
       - run: flutter pub get
       - run: flutter build apk
       - run: flutter build appbundle
+  deploy:
+    runs-on: macos-latest 
+    steps:
+      - name: Output event data
+        run: echo "${{ toJson(github.event)}}"
       
         
 
